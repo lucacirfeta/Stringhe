@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
@@ -11,14 +12,13 @@ public class Main {
 
         System.out.println("--------------------------------------");
 
-        Main m = new Main();
-
-        m.confronto(prima, seconda);
-        m.concat(prima, seconda);
-        m.convert(prima, seconda);
+        confronto(prima, seconda);
+        concat(prima, seconda);
+        convert(prima, seconda);
+        conteggio(prima, seconda);
     }
 
-    public void confronto(String a, String b) {
+    public static void confronto(String a, String b) {
         System.out.println("Esegue il confronto");
         System.out.println("Le due parole sono uguali? " + a.equals(b));
 
@@ -26,32 +26,43 @@ public class Main {
 
     }
 
-    public void concat(String a, String b) {
+    public static void concat(String a, String b) {
         System.out.println("Esegue la concatenazione");
-        System.out.println(a + " e " + b + " concatenate le due parole formano formano: " + a.concat(b));
+        System.out.println(a + " e " + b + " concatenate le due parole formano: " + a.concat(b));
 
         System.out.println("--------------------------------------");
 
     }
 
-    public void convert(String a, String b) {
+    public static void convert(String a, String b) {
         System.out.println("Esegue la conversione");
         Scanner s = new Scanner(System.in);
 
-        System.out.print("Vuoi convertire le parole in maiuscolo o in minuscolo?");
+        System.out.print("Vuoi convertire le parole in maiuscolo '1' o in minuscolo '2'? ");
         String scelta = s.nextLine();
 
-        switch (scelta) {
-            case "maiuscolo" -> {
+        try {
+            if (scelta.equals("1")) {
                 System.out.println(a.toUpperCase());
                 System.out.println(b.toUpperCase());
-            }
-            case "minuscolo" -> {
+            } else if (scelta.equals("2")) {
                 System.out.println(a.toLowerCase());
                 System.out.println(b.toLowerCase());
             }
+        } catch (NoSuchElementException e) {
+            System.out.println("Scelta non valida!");
 
         }
 
     }
+
+    public static void sottoString(String a, String b) {
+
+    }
+
+    public static void conteggio(String a, String b) {
+
+
+    }
+
 }
