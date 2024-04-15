@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -12,10 +13,13 @@ public class Main {
 
         System.out.println("--------------------------------------");
 
-        confronto(prima, seconda);
-        concat(prima, seconda);
-        convert(prima, seconda);
+//        confronto(prima, seconda);
+//        concat(prima, seconda);
+//        convert(prima, seconda);
+//        conteggio(prima, seconda);
+//        sottoString(prima, seconda);
         conteggio(prima, seconda);
+
     }
 
     public static void confronto(String a, String b) {
@@ -58,10 +62,24 @@ public class Main {
 
     public static void sottoString(String a, String b) {
 
+        String c = a.concat(b);
+        String[] split = c.split(" ");
+
+        for (String s : split) {
+
+            boolean m = s.equals("pane");
+            if (m) {
+                System.out.println("è presente");
+            }
+        }
     }
 
     public static void conteggio(String a, String b) {
+        String c = a.concat(b);
+        char[] chars = c.toCharArray();
+        System.out.println("chars = " + Arrays.toString(chars));
 
+        System.out.println(chars.length);
 
     }
 
