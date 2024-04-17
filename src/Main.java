@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -7,17 +6,17 @@ public class Main {
         Scanner s = new Scanner(System.in);
 
         System.out.print("Digita la prima parola: ");
-        String prima = s.nextLine();
+        String prima = s.nextLine() + " ";
         System.out.print("Digita la seconda parola: ");
         String seconda = s.nextLine();
 
         System.out.println("--------------------------------------");
 
-//        confronto(prima, seconda);
-//        concat(prima, seconda);
-//        convert(prima, seconda);
-//        conteggio(prima, seconda);
-//        sottoString(prima, seconda);
+        confronto(prima, seconda);
+        concat(prima, seconda);
+        convert(prima, seconda);
+        conteggio(prima, seconda);
+        sottoString(prima, seconda);
         conteggio(prima, seconda);
 
     }
@@ -32,8 +31,8 @@ public class Main {
 
     public static void concat(String a, String b) {
         System.out.println("Esegue la concatenazione");
-        System.out.println(a + " e " + b + " concatenate le due parole formano: " + a.concat(b));
-
+        String c = a.concat(b);
+        System.out.println(a + " e " + b + " concatenate le due parole formano: " + c);
         System.out.println("--------------------------------------");
 
     }
@@ -61,25 +60,44 @@ public class Main {
     }
 
     public static void sottoString(String a, String b) {
+        Scanner s = new Scanner(System.in);
 
         String c = a.concat(b);
         String[] split = c.split(" ");
+        System.out.print("Digita la parola da trovare: ");
+        String primaPar = s.nextLine();
 
-        for (String s : split) {
+        boolean trovato = false;
 
-            boolean m = s.equals("pane");
-            if (m) {
-                System.out.println("è presente");
+        for (String string : split) {
+            if (string.equals(primaPar)) {
+                trovato = true;
+                break;
             }
+        }
+        if (trovato) {
+            System.out.println("La parola è stata trovata!");
+        } else {
+            System.out.println("La parola non è stata trovata!");
         }
     }
 
+
     public static void conteggio(String a, String b) {
         String c = a.concat(b);
-        char[] chars = c.toCharArray();
-        System.out.println("chars = " + Arrays.toString(chars));
+        String[] split = c.split(" ");
 
-        System.out.println(chars.length);
+        int contParole = 0;
+        int contChar = 0;
+
+        for (int i = 0; i < split.length; i++) {
+            contParole++;
+        }
+        for (int j = 0; j < contParole; j++) {
+            contChar++;
+        }
+        System.out.println("Nella frase ci sono " + contParole + " parole");
+        System.out.println("Nella frase ci sono " + contChar + " caratteri senza spazi vuoti");
 
     }
 
