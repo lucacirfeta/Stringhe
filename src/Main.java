@@ -86,6 +86,8 @@ public class Main {
     public static void conteggio(String a, String b) {
         String c = a.concat(b);
         String[] split = c.split(" ");
+        String as = c.replace(" ", "");
+        char[] ch = as.toCharArray();
 
         int contParole = 0;
         int contChar = 0;
@@ -93,7 +95,7 @@ public class Main {
         for (int i = 0; i < split.length; i++) {
             contParole++;
         }
-        for (int j = 0; j < contParole; j++) {
+        for (int j = 0; j < ch.length; j++) {
             contChar++;
         }
         System.out.println("Nella frase ci sono " + contParole + " parole");
