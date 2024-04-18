@@ -12,12 +12,13 @@ public class Main {
 
         System.out.println("--------------------------------------");
 
-        confronto(prima, seconda);
-        concat(prima, seconda);
-        convert(prima, seconda);
-        conteggio(prima, seconda);
-        sottoString(prima, seconda);
-        conteggio(prima, seconda);
+//        confronto(prima, seconda);
+//        concat(prima, seconda);
+//        convert(prima, seconda);
+//        conteggio(prima, seconda);
+//        sottoString(prima, seconda);
+//        conteggio(prima, seconda);
+        vocali(prima, seconda);
 
     }
 
@@ -103,4 +104,55 @@ public class Main {
 
     }
 
+    public static void vocali(String a, String b) {
+
+        String c = a.concat(b);
+        String lowerCase = c.toLowerCase();
+        String cancellaSpazi = lowerCase.replace(" ", "");
+        char[] charArray = cancellaSpazi.toCharArray();
+        char[] vocali = {'a', 'e', 'i', 'o', 'u'};
+
+        boolean trovato = false;
+        int char1 = 0;
+        int char2 = 0;
+        int char3 = 0;
+        int char4 = 0;
+        int char5 = 0;
+
+        for (char vocaliFor1 : charArray) {
+            for (char vocaliFor2 : vocali) {
+                if (vocaliFor1 == vocaliFor2) {
+                    trovato = true;
+
+                    switch (vocaliFor1) {
+                        case 'a':
+                            char1++;
+                            continue;
+                        case 'e':
+                            char2++;
+                            continue;
+                        case 'i':
+                            char3++;
+                            continue;
+                        case 'o':
+                            char4++;
+                            continue;
+                        case 'u':
+                            char5++;
+                    }
+                }
+            }
+        }
+        if (trovato) {
+            System.out.println("I caratteri sono stati trovati!");
+            System.out.println("a = " + char1);
+            System.out.println("e = " + char2);
+            System.out.println("i = " + char3);
+            System.out.println("o = " + char4);
+            System.out.println("u = " + char5);
+        } else {
+            System.out.println("I caratteri non sono stati trovati!");
+        }
+    }
 }
+
