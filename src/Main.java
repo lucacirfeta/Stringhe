@@ -12,13 +12,14 @@ public class Main {
 
         System.out.println("--------------------------------------");
 
-//        confronto(prima, seconda);
-//        concat(prima, seconda);
-//        convert(prima, seconda);
-//        conteggio(prima, seconda);
-//        sottoString(prima, seconda);
-//        conteggio(prima, seconda);
+        confronto(prima, seconda);
+        concat(prima, seconda);
+        convert(prima, seconda);
+        conteggio(prima, seconda);
+        sottoString(prima, seconda);
+        conteggio(prima, seconda);
         vocali(prima, seconda);
+        inverti(prima, seconda);
 
     }
 
@@ -153,6 +154,10 @@ public class Main {
         } else {
             System.out.println("I caratteri non sono stati trovati!");
         }
+    }
+
+    public static void inverti(String a, String b){
+
     }
 }
 
